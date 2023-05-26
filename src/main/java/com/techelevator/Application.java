@@ -11,6 +11,7 @@ public class Application {
         app.run();
     }
 
+
     private void run() {
         // create some departments
         createDepartments();
