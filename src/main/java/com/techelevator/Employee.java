@@ -69,6 +69,12 @@ public class Employee {
 
     public Employee(long employeeId, String firstName, String lastName, String email, Department department, String hireDate){
         this.salary = SALARY;
+        this.employeeId = employeeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.department = department;
+        this.hireDate = hireDate;
     }
 
     public Employee(){
