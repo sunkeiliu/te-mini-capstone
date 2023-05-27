@@ -1,7 +1,10 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 public class Application {
 
     /**
@@ -15,6 +18,8 @@ public class Application {
 
     List<Department> departments = new ArrayList<>();
     List<Employee> employees = new ArrayList<>();
+
+    Map<String, Project> projects = new HashMap<>();
 
     private void run() {
         // create some departments
@@ -102,6 +107,15 @@ public class Application {
      * Create the 'TEams' project.
      */
     private void createTeamsProject() {
+        Project project = new Project("TEams", "Project Management Software", "10/10/2020", "11/10/2020");
+
+
+        List<Employee> engineeringEmployees = new ArrayList<>();
+
+        engineeringEmployees.add(employees.get(0));
+        engineeringEmployees.add(employees.get(1));
+        project.setTeamMembers(engineeringEmployees);
+        projects.put(project.getName(), project);
 
     }
 
@@ -109,7 +123,11 @@ public class Application {
      * Create the 'Marketing Landing Page' project.
      */
     private void createLandingPageProject() {
-
+        Project project = new Project("Marketing Landing Page", "Lead Capture Landing Page for Marketing", "10/10/2020", "10/17/2020");
+        List<Employee> marketingEmployees = new ArrayList<>();
+        marketingEmployees.add(employees.get(2));
+        project.setTeamMembers(marketingEmployees);
+        projects.put(project.getName(),project);
     }
 
     /**
@@ -117,6 +135,12 @@ public class Application {
      */
     private void printProjectsReport() {
         System.out.println("\n------------- PROJECTS ------------------------------");
+
+        for (Map.Entry<String, Project> names : projects.entrySet()){
+
+            System.out.println(names.getKey() + ": " + names.getValue().getTeamMembers().size());
+
+        }
 
     }
 
